@@ -25,7 +25,7 @@ conditions, environment, and the quality of the color segmentation.
 - You can quit the program using the 'Close' button.
 
 ## Release Notes
-### 25.01.14
+### 25.01.16
 SegContour 1.0.0 released
 
 ## Requirements
