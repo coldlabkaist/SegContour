@@ -23,7 +23,7 @@ from scipy.signal import find_peaks
 from tkinter import ttk, filedialog, messagebox
 from concurrent.futures import ThreadPoolExecutor
 
-def LoadVideo(video_path):
+def LoadVideo(video_path: str) -> tuple[cv2.VideoCapture, int, int, int, int]:
     """
     The LoadVideo function loads the input video and retrieves basic 
     properties, such as frame dimensions, frame rate, and total frame count.
@@ -67,7 +67,7 @@ def LoadVideo(video_path):
     # Return the VideoCapture object and the extracted video properties
     return cap, frame_width, frame_height, fps, frame_count
 
-def CalculateThreshold(video_path):
+def CalculateThreshold(video_path: str) -> tuple[int, int, int]:
     """
     The CalculateThreshold function Calculate the thresholds for each 
     color channel (Blue, Green, Red) based on the average histograms of 
@@ -143,7 +143,7 @@ def CalculateThreshold(video_path):
     # Return the calculated thresholds for each channel
     return threshold_b, threshold_g, threshold_r
 
-def ContourExtraction(image, channel):
+def ContourExtraction(image: np.ndarray, channel: np.ndarray) -> np.ndarray:
     """
     The ContourExtraction function extracts contours from the given image 
     by detecting edges in the specified channel.
@@ -180,7 +180,7 @@ def ContourExtraction(image, channel):
     # Return the final image with contours
     return final_image
 
-def MakeContouredVideo(video_path, output_video_path, threshold_b, threshold_g, threshold_r, progress_callback):
+def MakeContouredVideo(video_path: str, output_video_path: str, threshold_b: int, threshold_g: int, threshold_r: int, progress_callback: function) -> None:
     """
     The MakeContouredVideo function processes a video to generate contours 
     based on thresholds and save the output.
@@ -460,7 +460,7 @@ class SegContourGUI:
             else:
                 self.output_scroll_x.grid_remove()
 
-    def UpdateProgress(self, video_name, current_frame, total_frames):
+    def UpdateProgress(self, video_name: str, current_frame: int, total_frames: int):
         """
         Updates the progress bar and label to reflect the current frame 
         during video processing.
