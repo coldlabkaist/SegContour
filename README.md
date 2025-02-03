@@ -29,9 +29,9 @@ conditions, environment, and the quality of the color segmentation.
 SegContour 1.0.0 released
 
 ## Requirements
-- opencv-python==4.10.0.84
-- numpy==1.26.4
-- scipy==1.13.1
+- opencv-python>=4.10.0.84
+- numpy>=1.26.4
+- scipy>=1.13.1
 
 --
 
